@@ -1,1 +1,1 @@
-worker: pnpm run start
+worker: npm run start

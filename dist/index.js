@@ -14,7 +14,7 @@ BOT.once("ready", () => {
     console.log(`Logged in as ${(_a = BOT.user) === null || _a === void 0 ? void 0 : _a.tag}!`);
 });
 BOT.on("messageCreate", (message) => {
-    var _a;
+    var _a, _b, _c, _d, _e;
     if (message.author.bot)
         return;
     if (!message.content.startsWith(prefix))
@@ -27,7 +27,9 @@ BOT.on("messageCreate", (message) => {
         message.reply(`Pong! This message had a latency of ${timeTaken}ms.`);
     }
     if (command === "where") {
-        message.reply(`<@${message.author.id}> just call for duty @everyone`);
+        const innerCircle = (_c = (_b = message.guild) === null || _b === void 0 ? void 0 : _b.roles.cache.find((role) => role.name.toLowerCase().includes("inner"))) === null || _c === void 0 ? void 0 : _c.id;
+        const dongGuards = (_e = (_d = message.guild) === null || _d === void 0 ? void 0 : _d.roles.cache.find((role) => role.name.toLowerCase().includes("dong"))) === null || _e === void 0 ? void 0 : _e.id;
+        message.reply(`<@${message.author.id}> just call for duty <@&${innerCircle}> <@&${dongGuards}>`);
     }
 });
 BOT.login(process.env.BOT_TOKEN);

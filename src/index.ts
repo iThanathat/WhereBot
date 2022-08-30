@@ -27,7 +27,15 @@ BOT.on("messageCreate", (message) => {
   }
 
   if (command === "where") {
-    message.reply(`<@${message.author.id}> just call for duty @everyone`);
+    const innerCircle = message.guild?.roles.cache.find((role) =>
+      role.name.toLowerCase().includes("inner")
+    )?.id;
+    const dongGuards = message.guild?.roles.cache.find((role) =>
+      role.name.toLowerCase().includes("dong")
+    )?.id;
+    message.reply(
+      `<@${message.author.id}> just call for duty <@&${innerCircle}> <@&${dongGuards}>`
+    );
   }
 });
 

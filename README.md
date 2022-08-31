@@ -14,6 +14,8 @@ pnpm install
 
 After installing process is done
 
+Create .env file for `BOT_TOKEN`. This is require for testing the bot. If you do not have `BOT_TOKEN`, you cannot run bot.
+
 For development
 ```
 npm run dev
